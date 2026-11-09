@@ -186,6 +186,17 @@ func (e *Engine) Transport(slug string) http.RoundTripper {
 	return inProcess{h: e.app.Router, slug: slug}
 }
 
+// TenantHandler serves every request as the tenant's backend, trusted
+// like Transport's. Put it only behind an authentication of your own,
+// such as the local token of the aos app command.
+func (e *Engine) TenantHandler(slug string) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		r = r.WithContext(middleware.WithTrustedTenant(r.Context(), slug))
+		r.Header.Del("Origin")
+		e.app.Router.ServeHTTP(w, r)
+	})
+}
+
 type inProcess struct {
 	h    http.Handler
 	slug string

@@ -74,6 +74,7 @@ type Auth struct {
 	*aos.Client
 	eng    *engine.Engine
 	path   string
+	slug   string
 	pk     string
 	cancel context.CancelFunc
 }
@@ -148,7 +149,7 @@ func New(ctx context.Context, cfg Config) (*Auth, error) {
 	}
 	runCtx, cancel := context.WithCancel(context.Background())
 	go eng.Run(runCtx)
-	return &Auth{Client: client, eng: eng, path: cfg.Path, pk: pk, cancel: cancel}, nil
+	return &Auth{Client: client, eng: eng, path: cfg.Path, slug: cfg.Slug, pk: pk, cancel: cancel}, nil
 }
 
 // Handler serves the routes the browser SDK and the email links use.
@@ -165,6 +166,12 @@ func (a *Auth) Handler() http.Handler {
 		inner.ServeHTTP(w, r)
 	}))
 }
+
+// Slug names the application's tenant.
+func (a *Auth) Slug() string { return a.slug }
+
+// Path is where Handler expects to be mounted, such as "/aos".
+func (a *Auth) Path() string { return a.path }
 
 // PublishableKey is the key the browser SDK sends. It is not a secret.
 func (a *Auth) PublishableKey() string { return a.pk }

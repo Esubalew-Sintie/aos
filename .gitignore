@@ -4,3 +4,4 @@ go.work.sum
 .env
 *.test
 *.out
+dist/

@@ -24,6 +24,8 @@ Usage:
   aos tenant create ...     create a tenant and print its keys
   aos owner create ...      create the first admin of a tenant
   aos keygen                print a new master key for AOS_MASTER_KEY
+  aos version               print the release this program was built from
+  aos app ...               run the engine for one application ("aos app -h")
   aos doctor                check configuration, database, schema and keys
   aos openapi               print the OpenAPI document of the API
   aos permissions sync ...  apply a permissions.json file to a tenant
@@ -75,6 +77,10 @@ func usage() string {
 	return text
 }
 
+// BuildVersion is the release this program was built from, set at build
+// time with -ldflags "-X github.com/flash-softeware/aos/initiator.BuildVersion=v0.3.0".
+var BuildVersion = "dev"
+
 // Version is the API version written into the OpenAPI document.
 const Version = "1.0.0"
 
@@ -108,6 +114,8 @@ func Run(ctx context.Context, args []string) int {
 		err = runExport(ctx, args, os.Stdout)
 	case "import":
 		err = runImport(ctx, args, os.Stdout)
+	case "version", "--version":
+		fmt.Println("aos", BuildVersion)
 	case "keygen":
 		fmt.Println(secret.NewMasterKeyString())
 	case "help", "-h", "--help":

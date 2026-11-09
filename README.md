@@ -40,6 +40,16 @@ Nothing below is exposed as a route. It is simply absent.
 - Scheduled access reviews: a review is started by a call, so a schedule is a cron job that calls `POST /v1/admin/access-reviews`.
 - The container image is described (`Dockerfile`) but its final stage has not been built here, because this machine could not reach the base image registry.
 
+## Get it
+
+Each `v*` tag publishes the engine on the [releases page](https://github.com/flash-softeware/aos/releases): `aos_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows) for Linux, macOS and Windows on amd64 and arm64, with `checksums.txt`; and the image `ghcr.io/flash-softeware/aos:<version>`. `scripts/release.sh v0.4.0` builds the same archives locally. `aos version` prints the release a program was built from.
+
+`aosctl dev` and the Node and Python SDKs download the release they are tested with when no engine is installed, and check it against `checksums.txt`.
+
+## One application's engine: `aos app`
+
+`aos app` runs the engine for a single application, started by that application's backend; the Node and Python SDKs do this (`startLocal`, `start_local`). It makes or finds the application's tenant, listens on a local address, and prints one line of JSON when ready (`url`, `path`, `publishable_key`, `version`). Requests under `--path` (default `/aos`) are the browser's, which the application proxies. Other requests that carry `Authorization: Bearer $AOS_LOCAL_TOKEN` are the application's backend calls; the parent chooses that token (`sk_local_` and at least 32 random characters) and nothing else knows it. With `--exit-with-stdin` it stops when the parent goes away. `aos app -h` lists the flags.
+
 ## Use it as a Go package
 
 The engine can also run inside a Go program instead of as the `aos` server.
