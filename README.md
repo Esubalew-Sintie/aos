@@ -42,7 +42,7 @@ Nothing below is exposed as a route. It is simply absent.
 
 ## Get it
 
-Each `v*` tag publishes the engine on the [releases page](https://github.com/flash-softeware/aos/releases): `aos_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows) for Linux, macOS and Windows on amd64 and arm64, with `checksums.txt`; and the image `ghcr.io/flash-softeware/aos:<version>`. `scripts/release.sh v0.4.0` builds the same archives locally. `aos version` prints the release a program was built from.
+Each `v*` tag publishes the engine on the [releases page](https://github.com/flash-softeware/aos/releases): `aos_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows) for Linux, macOS and Windows on amd64 and arm64, with `checksums.txt`; and the image `ghcr.io/flash-softeware/aos:<version>`. `scripts/release.sh v0.4.1` builds the same archives locally. `aos version` prints the release a program was built from.
 
 `aosctl dev` and the Node and Python SDKs download the release they are tested with when no engine is installed, and check it against `checksums.txt`.
 
