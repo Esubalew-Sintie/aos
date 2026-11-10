@@ -2,6 +2,7 @@ package initiator
 
 import (
 	"github.com/flash-software-technology/aos/internal/handler/rest"
+	rest_audit "github.com/flash-software-technology/aos/internal/handler/rest/http/audit"
 	rest_auth "github.com/flash-software-technology/aos/internal/handler/rest/http/auth"
 	rest_enterprise "github.com/flash-software-technology/aos/internal/handler/rest/http/enterprise"
 	rest_iam "github.com/flash-software-technology/aos/internal/handler/rest/http/iam"
@@ -20,6 +21,7 @@ type Handler struct {
 	AuthHandler         rest.AuthHandler
 	IAMHandler          rest.IAMHandler
 	UserHandler         rest.UserHandler
+	AuditHandler        rest.AuditHandler
 	WebhookHandler      rest.WebhookHandler
 	OrganizationHandler rest.OrganizationHandler
 	SocialHandler       rest.SocialProviderHandler
@@ -35,6 +37,7 @@ func InitHandler(module Module, log logger.Logger) Handler {
 		AuthHandler:         rest_auth.NewAuthHandler(module.Auth, module.Tenant, log.Named("handler.auth")),
 		IAMHandler:          rest_iam.NewIamHandler(module.IAM, log.Named("handler.iam")),
 		UserHandler:         rest_user.NewUserHandler(module.Auth, module.IAM, log.Named("handler.user")),
+		AuditHandler:        rest_audit.NewAuditHandler(module.Audit, log.Named("handler.audit")),
 		WebhookHandler:      rest_webhook.NewWebhookHandler(module.Notification, log.Named("handler.webhook")),
 		OrganizationHandler: rest_organization.NewOrganizationHandler(module.Organization, module.Auth, log.Named("handler.organization")),
 		SocialHandler:       rest_social.NewSocialProviderHandler(module.Auth, log.Named("handler.social")),

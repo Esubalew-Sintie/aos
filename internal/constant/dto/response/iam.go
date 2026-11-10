@@ -119,3 +119,22 @@ type Group struct {
 	MemberCount    int       `json:"member_count"`
 	CreatedAt      time.Time `json:"created_at"`
 }
+
+// GrantRecord is a grant as listed for an admin. Resource is named by its
+// type and the application's own id.
+type GrantRecord struct {
+	ID          string        `json:"id"`
+	PrincipalID string        `json:"principal_id"`
+	Role        string        `json:"role"`
+	Resource    GrantResource `json:"resource"`
+	Effect      string        `json:"effect"`
+	ExpiresAt   *time.Time    `json:"expires_at,omitempty"`
+	Reason      string        `json:"reason,omitempty"`
+	Source      string        `json:"source,omitempty"`
+	CreatedAt   time.Time     `json:"created_at"`
+}
+
+type GrantResource struct {
+	Type string `json:"type"`
+	ID   string `json:"id"`
+}

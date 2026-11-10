@@ -43,6 +43,7 @@ func InitRoutes(r chi.Router, handler Handler, module Module, cfg config.Config,
 	routing.InitAuthRoutes(r, handler.AuthHandler, tenantMiddleware)
 	routing.InitIamRoutes(r, handler.IAMHandler, tenantMiddleware)
 	routing.InitUserRoutes(r, handler.UserHandler, tenantMiddleware)
+	routing.InitAuditRoutes(r, handler.AuditHandler, tenantMiddleware)
 	routing.InitWebhookRoutes(r, handler.WebhookHandler, tenantMiddleware)
 	routing.InitOrganizationRoutes(r, handler.OrganizationHandler, tenantMiddleware)
 	routing.InitSocialRoutes(r, handler.SocialHandler, tenantMiddleware)

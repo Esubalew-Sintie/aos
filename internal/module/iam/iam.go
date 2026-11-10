@@ -530,6 +530,44 @@ func (m *iamModule) DeleteGrant(ctx context.Context, t *model.Tenant, grantID st
 	return nil
 }
 
+// defaultGrantPageSize is how many grants a list returns when the caller
+// does not say.
+const defaultGrantPageSize = 100
+
+func (m *iamModule) ListGrants(ctx context.Context, t *model.Tenant, req request.ListGrantsRequest) ([]response.GrantRecord, error) {
+	if err := req.Validate(); err != nil {
+		return nil, err
+	}
+	limit := req.Limit
+	if limit <= 0 {
+		limit = defaultGrantPageSize
+	}
+	if limit > constant.MaxPageSize {
+		limit = constant.MaxPageSize
+	}
+	filter := model.GrantFilter{PrincipalID: req.PrincipalID}
+	if req.ResourceType != "" {
+		filter.Resource = &model.ResourceRef{Type: req.ResourceType, ID: req.ResourceID}
+	}
+	var grants []model.GrantInfo
+	err := m.db.Tenant(ctx, t.ID, func(tx pgx.Tx) (err error) {
+		grants, err = m.repo.ListGrants(ctx, tx, t.ID, filter, limit)
+		return err
+	})
+	if err != nil {
+		return nil, passThrough("list grants", err)
+	}
+	out := make([]response.GrantRecord, 0, len(grants))
+	for _, g := range grants {
+		out = append(out, response.GrantRecord{
+			ID: g.ID, PrincipalID: g.PrincipalID, Role: g.Role,
+			Resource: response.GrantResource{Type: g.ResourceType, ID: g.ResourceID},
+			Effect:   g.Effect, ExpiresAt: g.ExpiresAt, Reason: g.Reason, Source: g.Source, CreatedAt: g.CreatedAt,
+		})
+	}
+	return out, nil
+}
+
 func passThrough(operation string, err error) error {
 	if err == nil {
 		return nil

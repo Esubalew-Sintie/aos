@@ -69,6 +69,7 @@ type IAMHandler interface {
 	CreateResource(w http.ResponseWriter, r *http.Request)
 	CreateGrant(w http.ResponseWriter, r *http.Request)
 	DeleteGrant(w http.ResponseWriter, r *http.Request)
+	ListGrants(w http.ResponseWriter, r *http.Request)
 	CanBatch(w http.ResponseWriter, r *http.Request)
 	Explain(w http.ResponseWriter, r *http.Request)
 	Filter(w http.ResponseWriter, r *http.Request)
@@ -100,6 +101,11 @@ type OrganizationHandler interface {
 	AcceptInvitation(w http.ResponseWriter, r *http.Request)
 	DeclineInvitation(w http.ResponseWriter, r *http.Request)
 	SignUpByInvitation(w http.ResponseWriter, r *http.Request)
+}
+
+// AuditHandler serves the tenant's audit log to its backend.
+type AuditHandler interface {
+	List(w http.ResponseWriter, r *http.Request)
 }
 
 // UserHandler serves the backend routes for accounts.

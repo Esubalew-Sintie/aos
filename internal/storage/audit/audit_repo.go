@@ -223,3 +223,38 @@ func (r *auditRepository) ListSince(ctx context.Context, tx pgx.Tx, tenantID, or
 	}
 	return out, nil
 }
+
+func (r *auditRepository) List(ctx context.Context, tx pgx.Tx, tenantID string, f model.AuditFilter, limit int) ([]model.AuditRecord, error) {
+	// An entry with no actor was done by the engine or the tenant's own
+	// backend: "system". An actor whose account is gone is "unknown".
+	rows, err := tx.Query(ctx, `
+		SELECT a.seq, a.occurred_at, a.action, a.result, COALESCE(a.reason_code, ''),
+		       CASE WHEN a.actor_principal_id IS NULL THEN 'system' ELSE COALESCE(p.kind, 'unknown') END,
+		       COALESCE(a.actor_principal_id::text, ''), COALESCE(u.email::text, ''),
+		       COALESCE(a.target_type, ''), COALESCE(a.target_id, ''), COALESCE(a.organization_id::text, ''),
+		       COALESCE(host(pd.ip), '')
+		FROM aos.audit_log a
+		LEFT JOIN aos.principals p ON p.tenant_id = a.tenant_id AND p.id = a.actor_principal_id
+		LEFT JOIN aos.users u ON u.tenant_id = a.tenant_id AND u.principal_id = a.actor_principal_id AND p.kind = 'user'
+		LEFT JOIN aos.audit_log_personal pd ON pd.tenant_id = a.tenant_id AND pd.seq = a.seq
+		WHERE a.tenant_id = $1
+		  AND ($2::bigint = 0 OR a.seq < $2::bigint)
+		  AND ($3::text = '' OR starts_with(a.action, $3::text))
+		  AND ($4::text = '' OR a.actor_principal_id = NULLIF($4::text, '')::uuid)
+		  AND ($5::text = '' OR a.target_id = $5::text)
+		ORDER BY a.seq DESC LIMIT $6`,
+		tenantID, f.Before, f.ActionPrefix, f.ActorID, f.TargetID, limit)
+	if err != nil {
+		return nil, fmt.Errorf("audit: list log: %w", err)
+	}
+	out, err := pgx.CollectRows(rows, func(row pgx.CollectableRow) (model.AuditRecord, error) {
+		var e model.AuditRecord
+		err := row.Scan(&e.Seq, &e.OccurredAt, &e.Action, &e.Result, &e.ReasonCode, &e.ActorType, &e.ActorID,
+			&e.ActorEmail, &e.TargetType, &e.TargetID, &e.OrganizationID, &e.IP)
+		return e, err
+	})
+	if err != nil {
+		return nil, fmt.Errorf("audit: list log: %w", err)
+	}
+	return out, nil
+}

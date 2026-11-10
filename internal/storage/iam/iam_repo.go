@@ -257,6 +257,36 @@ func (r *iamRepository) ListGrantsForPrincipal(ctx context.Context, tx pgx.Tx, t
 	return grants, nil
 }
 
+func (r *iamRepository) ListGrants(ctx context.Context, tx pgx.Tx, tenantID string, f model.GrantFilter, limit int) ([]model.GrantInfo, error) {
+	var resType, resID string
+	if f.Resource != nil {
+		resType, resID = f.Resource.Type, f.Resource.ID
+	}
+	rows, err := tx.Query(ctx, `
+		SELECT g.id::text, g.principal_id::text, ro.name, re.type, re.external_id, g.effect, g.expires_at,
+		       COALESCE(g.reason, ''), g.source, g.created_at
+		FROM aos.grants g
+		JOIN aos.roles ro ON ro.tenant_id = g.tenant_id AND ro.id = g.role_id
+		JOIN aos.resources re ON re.tenant_id = g.tenant_id AND re.id = g.resource_id
+		WHERE g.tenant_id = $1 AND g.principal_id IS NOT NULL
+		  AND ($2::text = '' OR g.principal_id = NULLIF($2::text, '')::uuid)
+		  AND ($3::text = '' OR (re.type = $3::text AND re.external_id = $4::text))
+		ORDER BY g.created_at, g.id LIMIT $5`, tenantID, f.PrincipalID, resType, resID, limit)
+	if err != nil {
+		return nil, fmt.Errorf("list grants: %w", err)
+	}
+	grants, err := pgx.CollectRows(rows, func(row pgx.CollectableRow) (model.GrantInfo, error) {
+		var g model.GrantInfo
+		err := row.Scan(&g.ID, &g.PrincipalID, &g.Role, &g.ResourceType, &g.ResourceID, &g.Effect, &g.ExpiresAt,
+			&g.Reason, &g.Source, &g.CreatedAt)
+		return g, err
+	})
+	if err != nil {
+		return nil, fmt.Errorf("list grants: %w", err)
+	}
+	return grants, nil
+}
+
 func (r *iamRepository) Ancestors(ctx context.Context, tx pgx.Tx, tenantID, resourceID string) ([]model.ResourceNode, error) {
 	rows, err := tx.Query(ctx, `
 		SELECT re.id::text, re.type, re.external_id, a.depth

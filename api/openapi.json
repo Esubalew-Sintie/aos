@@ -261,6 +261,62 @@
         },
         "type": "object"
       },
+      "AuditPage": {
+        "properties": {
+          "entries": {
+            "items": {
+              "$ref": "#/components/schemas/AuditRecord"
+            },
+            "type": "array"
+          },
+          "next_before": {
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "AuditRecord": {
+        "properties": {
+          "action": {
+            "type": "string"
+          },
+          "actor_email": {
+            "type": "string"
+          },
+          "actor_id": {
+            "type": "string"
+          },
+          "actor_type": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "occurred_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "organization_id": {
+            "type": "string"
+          },
+          "reason_code": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string"
+          },
+          "seq": {
+            "type": "integer"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "target_type": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
       "AuthResponse": {
         "properties": {
           "access_token": {
@@ -1105,6 +1161,51 @@
             "$ref": "#/components/schemas/Resource"
           },
           "role": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GrantRecord": {
+        "properties": {
+          "created_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "effect": {
+            "type": "string"
+          },
+          "expires_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "principal_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/GrantResource"
+          },
+          "role": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "GrantResource": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
             "type": "string"
           }
         },
@@ -5457,6 +5558,54 @@
         ]
       }
     },
+    "/v1/audit": {
+      "get": {
+        "operationId": "getV1Audit",
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Envelope"
+                    },
+                    {
+                      "properties": {
+                        "data": {
+                          "$ref": "#/components/schemas/AuditPage"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "secretKey": []
+          }
+        ],
+        "summary": "Read the audit log, newest first",
+        "tags": [
+          "audit"
+        ]
+      }
+    },
     "/v1/can": {
       "post": {
         "operationId": "postV1Can",
@@ -5980,6 +6129,55 @@
       }
     },
     "/v1/grants": {
+      "get": {
+        "operationId": "getV1Grants",
+        "responses": {
+          "2XX": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Envelope"
+                    },
+                    {
+                      "properties": {
+                        "data": {
+                          "items": {
+                            "$ref": "#/components/schemas/GrantRecord"
+                          },
+                          "type": "array"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            },
+            "description": "Success"
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Envelope"
+                }
+              }
+            },
+            "description": "Error"
+          }
+        },
+        "security": [
+          {
+            "secretKey": []
+          }
+        ],
+        "summary": "List the grants of a principal or on a resource",
+        "tags": [
+          "grants"
+        ]
+      },
       "post": {
         "operationId": "postV1Grants",
         "requestBody": {

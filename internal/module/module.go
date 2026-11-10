@@ -219,6 +219,8 @@ type IAM interface {
 	ListRoles(ctx context.Context, t *model.Tenant) ([]response.Role, error)
 	CreateGrant(ctx context.Context, t *model.Tenant, req request.CreateGrantRequest, meta model.RequestMeta) (*response.Grant, error)
 	DeleteGrant(ctx context.Context, t *model.Tenant, grantID string, meta model.RequestMeta) error
+	// ListGrants returns the grants of a principal, or on a resource.
+	ListGrants(ctx context.Context, t *model.Tenant, req request.ListGrantsRequest) ([]response.GrantRecord, error)
 
 	// CanBatch answers many questions in one call, for showing and hiding buttons.
 	CanBatch(ctx context.Context, t *model.Tenant, req request.CanBatchRequest, meta model.RequestMeta) (*response.CanBatchResponse, error)
@@ -236,6 +238,12 @@ type IAM interface {
 	DeleteGroup(ctx context.Context, t *model.Tenant, groupID string, meta model.RequestMeta) error
 	AddGroupMember(ctx context.Context, t *model.Tenant, groupID, principalID string, meta model.RequestMeta) error
 	RemoveGroupMember(ctx context.Context, t *model.Tenant, groupID, principalID string, meta model.RequestMeta) error
+}
+
+// Audit reads the tenant's audit log, for the tenant's admins.
+type Audit interface {
+	// List returns one page of the log, newest first.
+	List(ctx context.Context, t *model.Tenant, req request.ListAuditRequest) (*response.AuditPage, error)
 }
 
 // Organization is a customer of the application and its people.

@@ -4,6 +4,7 @@ package iam
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/go-chi/chi/v5"
 
@@ -206,6 +207,21 @@ func (h *IamHandler) ListPermissions(w http.ResponseWriter, r *http.Request) {
 func (h *IamHandler) ListRoles(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	res, err := h.iamModule.ListRoles(ctx, middleware.TenantFrom(ctx))
+	if err != nil {
+		httputil.Fail(w, r, h.logger, err)
+		return
+	}
+	response.SendSuccessResponse(w, http.StatusOK, "", res, nil)
+}
+
+// ListGrants lists the grants of a principal, or on a resource.
+func (h *IamHandler) ListGrants(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
+	q := r.URL.Query()
+	limit, _ := strconv.Atoi(q.Get("limit"))
+	res, err := h.iamModule.ListGrants(ctx, middleware.TenantFrom(ctx), request.ListGrantsRequest{
+		PrincipalID: q.Get("principal_id"), ResourceType: q.Get("resource_type"), ResourceID: q.Get("resource_id"), Limit: limit,
+	})
 	if err != nil {
 		httputil.Fail(w, r, h.logger, err)
 		return

@@ -303,3 +303,30 @@ func (r *GroupMemberRequest) Validate() error {
 	}
 	return nil
 }
+
+// ListGrantsRequest lists the grants of a principal, or on a resource.
+// At least one of the two is needed.
+type ListGrantsRequest struct {
+	PrincipalID  string
+	ResourceType string
+	ResourceID   string
+	Limit        int
+}
+
+func (r *ListGrantsRequest) Validate() error {
+	f := fields{}
+	hasResource := r.ResourceType != "" || r.ResourceID != ""
+	switch {
+	case r.PrincipalID == "" && !hasResource:
+		f["principal_id"] = "or resource_type and resource_id are required"
+	case r.PrincipalID != "" && !validUUID(r.PrincipalID):
+		f["principal_id"] = "must be a principal id"
+	}
+	if hasResource {
+		ResourceRef{Type: r.ResourceType, ID: r.ResourceID}.check("resource_id", f)
+	}
+	if len(f) > 0 {
+		return errors.Validation(f)
+	}
+	return nil
+}

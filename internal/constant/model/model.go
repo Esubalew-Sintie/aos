@@ -116,12 +116,21 @@ type SessionInfo struct {
 // GrantInfo is a grant as shown to a person or an admin.
 type GrantInfo struct {
 	ID           string
+	PrincipalID  string
 	Role         string
 	ResourceType string
 	ResourceID   string
 	Effect       string
 	ExpiresAt    *time.Time
+	Reason       string
+	Source       string
 	CreatedAt    time.Time
+}
+
+// GrantFilter narrows a list of grants. Empty fields match everything.
+type GrantFilter struct {
+	PrincipalID string
+	Resource    *ResourceRef
 }
 
 // WebhookEndpoint is where events, hook calls or audit entries are sent.
@@ -173,6 +182,33 @@ type AuditView struct {
 	ReasonCode string
 	TargetType string
 	TargetID   string
+}
+
+// AuditRecord is an audit entry as shown to a tenant admin, with who
+// acted.
+type AuditRecord struct {
+	Seq            int64
+	OccurredAt     time.Time
+	Action         string
+	Result         string
+	ReasonCode     string
+	ActorType      string
+	ActorID        string
+	ActorEmail     string
+	TargetType     string
+	TargetID       string
+	OrganizationID string
+	IP             string
+}
+
+// AuditFilter narrows the audit log. Empty fields match everything.
+type AuditFilter struct {
+	// Before returns entries older than this sequence number. 0 starts at the newest.
+	Before int64
+	// ActionPrefix matches actions that start with it, such as "user.".
+	ActionPrefix string
+	ActorID      string
+	TargetID     string
 }
 
 // NewToken is a single-use token to store. Only its hash is kept.

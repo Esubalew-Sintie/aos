@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/flash-software-technology/aos/internal/module"
+	auditmodule "github.com/flash-software-technology/aos/internal/module/audit"
 	authmodule "github.com/flash-software-technology/aos/internal/module/auth"
 	enterprisemodule "github.com/flash-software-technology/aos/internal/module/enterprise"
 	iammodule "github.com/flash-software-technology/aos/internal/module/iam"
@@ -28,6 +29,7 @@ type Module struct {
 	Notification module.Notification
 	Auth         module.Auth
 	IAM          module.IAM
+	Audit        module.Audit
 	Organization module.Organization
 	Machine      module.Machine
 	OAuth        module.OAuthProvider
@@ -107,6 +109,7 @@ func InitModule(db *postgres.DB, storage Storage, master *secret.MasterKey, opts
 		Notification: notification,
 		Auth:         auth,
 		IAM:          iam,
+		Audit:        auditmodule.NewAuditModule(db, storage.AuditRepo, log.Named("audit")),
 		Organization: organization,
 		Machine:      machine,
 		OAuth:        oauthProvider,

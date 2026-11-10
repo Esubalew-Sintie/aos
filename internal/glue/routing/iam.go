@@ -22,6 +22,7 @@ func InitIamRoutes(r chi.Router, handler rest.IAMHandler, tenant *middleware.Ten
 		{Method: http.MethodGet, Path: "/v1/roles", Handler: handler.ListRoles, Middlewares: backend},
 		{Method: http.MethodPut, Path: "/v1/resources", Handler: handler.CreateResource, Middlewares: backend},
 		{Method: http.MethodPost, Path: "/v1/grants", Handler: handler.CreateGrant, Middlewares: backend},
+		{Method: http.MethodGet, Path: "/v1/grants", Handler: handler.ListGrants, Middlewares: backend},
 		{Method: http.MethodDelete, Path: "/v1/grants/{id}", Handler: handler.DeleteGrant, Middlewares: backend},
 
 		// The other questions (user-flow PERM-3 to PERM-7).

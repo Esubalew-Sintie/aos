@@ -261,6 +261,9 @@ type IAMRepository interface {
 	TouchPermission(ctx context.Context, tx pgx.Tx, tenantID, name string, now time.Time) error
 	// ListGrantsForPrincipal returns every grant a principal holds directly.
 	ListGrantsForPrincipal(ctx context.Context, tx pgx.Tx, tenantID, principalID string) ([]model.GrantInfo, error)
+	// ListGrants returns the grants made to principals that match the
+	// filter, oldest first. Group grants are left out.
+	ListGrants(ctx context.Context, tx pgx.Tx, tenantID string, f model.GrantFilter, limit int) ([]model.GrantInfo, error)
 }
 
 type OrganizationRepository interface {
@@ -313,6 +316,9 @@ type AuditRepository interface {
 	ListForPrincipal(ctx context.Context, tx pgx.Tx, tenantID, principalID string, limit int) ([]model.AuditView, error)
 	// ListSince returns an organization's entries after a sequence number.
 	ListSince(ctx context.Context, tx pgx.Tx, tenantID, organizationID string, afterSeq int64, limit int) ([]model.AuditExportEntry, error)
+	// List returns the entries that match the filter, newest first, with
+	// the kind of principal who acted and, for a user, their email.
+	List(ctx context.Context, tx pgx.Tx, tenantID string, f model.AuditFilter, limit int) ([]model.AuditRecord, error)
 }
 
 type NotificationRepository interface {
