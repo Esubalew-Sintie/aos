@@ -42,7 +42,7 @@ Nothing below is exposed as a route. It is simply absent.
 
 ## Get it
 
-Each `v*` tag publishes the engine on the [releases page](https://github.com/flash-softeware/aos/releases): `aos_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows) for Linux, macOS and Windows on amd64 and arm64, with `checksums.txt`; and the image `ghcr.io/flash-softeware/aos:<version>`. `scripts/release.sh v0.4.1` builds the same archives locally. `aos version` prints the release a program was built from.
+Each `v*` tag publishes the engine on the [releases page](https://github.com/flash-software-technology/aos/releases): `aos_<version>_<os>_<arch>.tar.gz` (`.zip` on Windows) for Linux, macOS and Windows on amd64 and arm64, with `checksums.txt`; and the image `ghcr.io/flash-software-technology/aos:<version>`. `scripts/release.sh v0.5.0` builds the same archives locally. `aos version` prints the release a program was built from.
 
 `aosctl dev` and the Node and Python SDKs download the release they are tested with when no engine is installed, and check it against `checksums.txt`.
 
@@ -72,7 +72,7 @@ mux.Handle("GET /api/invoices", auth.Middleware(auth.RequirePermission("invoice.
 
 The backend routes accept an in-process call (a marker in the request's context, which no network request can carry) in place of the secret key. From the network they still require the secret key.
 
-`embed` uses the Go SDK (`github.com/flash-softeware/aos-go`) for its types. Until that module is published, `go.work` in this folder points at `../sdk/go`. `go.work` is for this machine only and stays out of the engine's repository; while it is needed, do not run `go mod tidy` here, and the Docker and CI builds cannot work outside this checkout.
+`embed` uses the Go SDK (`github.com/flash-software-technology/aos-go`) for its types. Until that module is published, `go.work` in this folder points at `../sdk/go`. `go.work` is for this machine only and stays out of the engine's repository; while it is needed, do not run `go mod tidy` here, and the Docker and CI builds cannot work outside this checkout.
 
 ## Extensions
 

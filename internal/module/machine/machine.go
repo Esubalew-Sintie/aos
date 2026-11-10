@@ -13,17 +13,17 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
-	"github.com/flash-softeware/aos/internal/constant/errors"
-	"github.com/flash-softeware/aos/internal/constant/model"
-	"github.com/flash-softeware/aos/internal/module"
-	authcore "github.com/flash-softeware/aos/internal/module/auth/core"
-	"github.com/flash-softeware/aos/internal/storage"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/postgres"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/module"
+	authcore "github.com/flash-software-technology/aos/internal/module/auth/core"
+	"github.com/flash-software-technology/aos/internal/storage"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 type machineModule struct {

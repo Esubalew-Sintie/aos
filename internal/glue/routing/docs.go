@@ -3,8 +3,8 @@ package routing
 import (
 	"net/http"
 
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
 )
 
 // Doc describes one route for the OpenAPI document. Request and Response

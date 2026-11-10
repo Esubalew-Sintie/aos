@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // SMTPSender sends email through an SMTP server.

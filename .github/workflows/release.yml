@@ -41,5 +41,5 @@ jobs:
           push: true
           build-args: VERSION=${{ github.ref_name }}
           tags: |
-            ghcr.io/flash-softeware/aos:${{ github.ref_name }}
-            ghcr.io/flash-softeware/aos:latest
+            ghcr.io/flash-software-technology/aos:${{ github.ref_name }}
+            ghcr.io/flash-software-technology/aos:latest

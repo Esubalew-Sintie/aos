@@ -3,10 +3,10 @@ package initiator
 import (
 	"errors"
 
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // InitMailer picks how email is sent.

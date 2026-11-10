@@ -11,10 +11,10 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/model"
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 // openApp builds the engine for a one-off command.

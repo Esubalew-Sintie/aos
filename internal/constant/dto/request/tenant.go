@@ -3,8 +3,8 @@ package request
 import (
 	"net/url"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 type CreateTenantRequest struct {

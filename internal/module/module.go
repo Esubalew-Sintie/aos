@@ -9,9 +9,9 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 // Tenant creates tenants and finds the tenant behind a presented key.

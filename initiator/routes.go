@@ -5,13 +5,13 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/glue/routing"
-	"github.com/flash-softeware/aos/internal/handler/middleware"
-	rest_dev "github.com/flash-softeware/aos/internal/handler/rest/http/dev"
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
-	"github.com/flash-softeware/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/internal/glue/routing"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
+	rest_dev "github.com/flash-software-technology/aos/internal/handler/rest/http/dev"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/postgres"
 )
 
 func InitRoutes(r chi.Router, handler Handler, module Module, cfg config.Config, db *postgres.DB, inbox *mailer.Inbox, log logger.Logger,

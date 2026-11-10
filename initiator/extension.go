@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/handler/middleware"
-	"github.com/flash-softeware/aos/internal/module"
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
+	"github.com/flash-software-technology/aos/internal/module"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 // Extension adds to the engine when it is built with more source files

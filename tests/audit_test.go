@@ -7,7 +7,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 func (e *env) metaForTest() model.RequestMeta {

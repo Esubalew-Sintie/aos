@@ -6,7 +6,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 func (r *iamRepository) ListPermissions(ctx context.Context, tx pgx.Tx, tenantID string) ([]model.CatalogPermission, error) {

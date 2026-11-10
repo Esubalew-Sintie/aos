@@ -6,13 +6,13 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
-	"github.com/flash-softeware/aos/internal/constant/errors"
-	"github.com/flash-softeware/aos/internal/constant/model"
-	"github.com/flash-softeware/aos/internal/module/iam/core"
-	"github.com/flash-softeware/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/module/iam/core"
+	"github.com/flash-software-technology/aos/platform/postgres"
 )
 
 // filterLimit caps how many resource ids one Filter answer carries.

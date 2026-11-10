@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/flash-softeware/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant"
 )
 
 func TestLockoutDelay(t *testing.T) {

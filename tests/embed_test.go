@@ -10,13 +10,13 @@ import (
 	"testing"
 	"time"
 
-	aos "github.com/flash-softeware/aos-go"
+	aos "github.com/flash-software-technology/aos-go"
 
-	"github.com/flash-softeware/aos/embed"
-	"github.com/flash-softeware/aos/engine"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
-	"github.com/flash-softeware/aos/platform/testdb"
+	"github.com/flash-software-technology/aos/embed"
+	"github.com/flash-software-technology/aos/engine"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/testdb"
 )
 
 // An application with the engine inside it: the browser signs up through

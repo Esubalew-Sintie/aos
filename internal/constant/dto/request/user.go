@@ -1,6 +1,6 @@
 package request
 
-import "github.com/flash-softeware/aos/internal/constant/errors"
+import "github.com/flash-software-technology/aos/internal/constant/errors"
 
 // CreateUserRequest is an admin creating an account. The person receives
 // a setup link and chooses their own password. No password is ever set

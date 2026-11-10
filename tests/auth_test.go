@@ -12,9 +12,9 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/platform/jwt"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/platform/jwt"
 )
 
 // The whole happy path, through HTTP: sign up, confirm the link, read the

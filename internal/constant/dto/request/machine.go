@@ -4,8 +4,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 // CreateMachineRequest makes a service account or an agent (MACH-1, MACH-8).

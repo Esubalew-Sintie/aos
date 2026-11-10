@@ -17,8 +17,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/flash-softeware/aos/embed"
-	"github.com/flash-softeware/aos/initiator"
+	"github.com/flash-software-technology/aos/embed"
+	"github.com/flash-software-technology/aos/initiator"
 )
 
 const appUsage = `aos app runs the engine for one application, started by its backend

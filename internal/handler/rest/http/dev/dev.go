@@ -5,11 +5,11 @@ import (
 	"net"
 	"net/http"
 
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
-	"github.com/flash-softeware/aos/internal/constant/errors"
-	"github.com/flash-softeware/aos/internal/handler/middleware"
-	"github.com/flash-softeware/aos/internal/handler/rest"
-	"github.com/flash-softeware/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
+	"github.com/flash-software-technology/aos/internal/handler/rest"
+	"github.com/flash-software-technology/aos/platform/mailer"
 )
 
 type DevHandler struct {

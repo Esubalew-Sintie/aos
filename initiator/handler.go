@@ -1,19 +1,19 @@
 package initiator
 
 import (
-	"github.com/flash-softeware/aos/internal/handler/rest"
-	rest_auth "github.com/flash-softeware/aos/internal/handler/rest/http/auth"
-	rest_enterprise "github.com/flash-softeware/aos/internal/handler/rest/http/enterprise"
-	rest_iam "github.com/flash-softeware/aos/internal/handler/rest/http/iam"
-	rest_machine "github.com/flash-softeware/aos/internal/handler/rest/http/machine"
-	rest_oauth "github.com/flash-softeware/aos/internal/handler/rest/http/oauth"
-	rest_organization "github.com/flash-softeware/aos/internal/handler/rest/http/organization"
-	rest_scim "github.com/flash-softeware/aos/internal/handler/rest/http/scim"
-	rest_social "github.com/flash-softeware/aos/internal/handler/rest/http/social"
-	rest_transfer "github.com/flash-softeware/aos/internal/handler/rest/http/transfer"
-	rest_user "github.com/flash-softeware/aos/internal/handler/rest/http/user"
-	rest_webhook "github.com/flash-softeware/aos/internal/handler/rest/http/webhook"
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/internal/handler/rest"
+	rest_auth "github.com/flash-software-technology/aos/internal/handler/rest/http/auth"
+	rest_enterprise "github.com/flash-software-technology/aos/internal/handler/rest/http/enterprise"
+	rest_iam "github.com/flash-software-technology/aos/internal/handler/rest/http/iam"
+	rest_machine "github.com/flash-software-technology/aos/internal/handler/rest/http/machine"
+	rest_oauth "github.com/flash-software-technology/aos/internal/handler/rest/http/oauth"
+	rest_organization "github.com/flash-software-technology/aos/internal/handler/rest/http/organization"
+	rest_scim "github.com/flash-software-technology/aos/internal/handler/rest/http/scim"
+	rest_social "github.com/flash-software-technology/aos/internal/handler/rest/http/social"
+	rest_transfer "github.com/flash-software-technology/aos/internal/handler/rest/http/transfer"
+	rest_user "github.com/flash-software-technology/aos/internal/handler/rest/http/user"
+	rest_webhook "github.com/flash-software-technology/aos/internal/handler/rest/http/webhook"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 type Handler struct {

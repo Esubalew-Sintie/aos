@@ -14,7 +14,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/module/notification"
+	"github.com/flash-software-technology/aos/internal/module/notification"
 )
 
 // receiver is the application's webhook endpoint.

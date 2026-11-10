@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/flash-softeware/aos/initiator"
+	"github.com/flash-software-technology/aos/initiator"
 )
 
 func main() {

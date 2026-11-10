@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 var nonSlug = regexp.MustCompile(`[^a-z0-9]+`)

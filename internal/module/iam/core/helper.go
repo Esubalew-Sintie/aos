@@ -5,8 +5,8 @@ import (
 	"crypto/sha256"
 	"encoding/json"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 // Reason codes of a permission decision.

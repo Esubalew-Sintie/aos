@@ -4,8 +4,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 // ResourceRef names a resource by its type and the application's own id.

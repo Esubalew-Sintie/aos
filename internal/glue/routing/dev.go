@@ -5,7 +5,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/handler/rest"
+	"github.com/flash-software-technology/aos/internal/handler/rest"
 )
 
 // InitDevRoutes registers the development helpers. They exist only on a

@@ -3,7 +3,7 @@ package core
 import (
 	"testing"
 
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 func TestDecide(t *testing.T) {

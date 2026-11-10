@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 // Inbox keeps the last emails a development engine "sent", so a developer

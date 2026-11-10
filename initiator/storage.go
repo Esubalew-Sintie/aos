@@ -1,19 +1,19 @@
 package initiator
 
 import (
-	"github.com/flash-softeware/aos/internal/storage"
-	auditrepo "github.com/flash-softeware/aos/internal/storage/audit"
-	authrepo "github.com/flash-softeware/aos/internal/storage/auth"
-	enterpriserepo "github.com/flash-softeware/aos/internal/storage/enterprise"
-	iamrepo "github.com/flash-softeware/aos/internal/storage/iam"
-	machinerepo "github.com/flash-softeware/aos/internal/storage/machine"
-	notificationrepo "github.com/flash-softeware/aos/internal/storage/notification"
-	oauthrepo "github.com/flash-softeware/aos/internal/storage/oauth"
-	organizationrepo "github.com/flash-softeware/aos/internal/storage/organization"
-	reviewrepo "github.com/flash-softeware/aos/internal/storage/review"
-	tenantrepo "github.com/flash-softeware/aos/internal/storage/tenant"
-	transferrepo "github.com/flash-softeware/aos/internal/storage/transfer"
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/internal/storage"
+	auditrepo "github.com/flash-software-technology/aos/internal/storage/audit"
+	authrepo "github.com/flash-software-technology/aos/internal/storage/auth"
+	enterpriserepo "github.com/flash-software-technology/aos/internal/storage/enterprise"
+	iamrepo "github.com/flash-software-technology/aos/internal/storage/iam"
+	machinerepo "github.com/flash-software-technology/aos/internal/storage/machine"
+	notificationrepo "github.com/flash-software-technology/aos/internal/storage/notification"
+	oauthrepo "github.com/flash-software-technology/aos/internal/storage/oauth"
+	organizationrepo "github.com/flash-software-technology/aos/internal/storage/organization"
+	reviewrepo "github.com/flash-software-technology/aos/internal/storage/review"
+	tenantrepo "github.com/flash-software-technology/aos/internal/storage/tenant"
+	transferrepo "github.com/flash-software-technology/aos/internal/storage/transfer"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 type Storage struct {

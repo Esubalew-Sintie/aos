@@ -8,12 +8,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/errors"
-	"github.com/flash-softeware/aos/internal/constant/model"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/postgres"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 const usageText = `aos runs the AOS identity engine.
@@ -78,7 +78,7 @@ func usage() string {
 }
 
 // BuildVersion is the release this program was built from, set at build
-// time with -ldflags "-X github.com/flash-softeware/aos/initiator.BuildVersion=v0.3.0".
+// time with -ldflags "-X github.com/flash-software-technology/aos/initiator.BuildVersion=v0.3.0".
 var BuildVersion = "dev"
 
 // Version is the API version written into the OpenAPI document.

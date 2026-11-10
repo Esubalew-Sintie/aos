@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/flash-softeware/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant"
 )
 
 // These two patterns are the same as the check constraints on

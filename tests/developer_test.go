@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
 )
 
 func TestDevelopmentInbox(t *testing.T) {

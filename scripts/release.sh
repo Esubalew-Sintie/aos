@@ -15,7 +15,7 @@ for t in $targets; do
   dir="dist/$name"; mkdir -p "$dir"
   exe="aos"; [[ $os == windows ]] && exe="aos.exe"
   CGO_ENABLED=0 GOOS=$os GOARCH=$arch go build -trimpath \
-    -ldflags="-s -w -X github.com/flash-softeware/aos/initiator.BuildVersion=$version" \
+    -ldflags="-s -w -X github.com/flash-software-technology/aos/initiator.BuildVersion=$version" \
     -o "$dir/$exe" ./cmd
   cp LICENSE README.md "$dir/"
   if [[ $os == windows ]]; then

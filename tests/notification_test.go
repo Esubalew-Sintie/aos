@@ -7,7 +7,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // Rule: secrets leave AOS once. The raw token exists only in the email.

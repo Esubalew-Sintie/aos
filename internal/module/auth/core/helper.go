@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // LimitKey turns an email address or a client address into the key of a

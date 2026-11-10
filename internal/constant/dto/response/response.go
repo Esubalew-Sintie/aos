@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 // Response is the envelope of every answer.

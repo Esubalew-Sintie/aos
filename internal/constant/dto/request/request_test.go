@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 // failed returns the fields a validation error names.

@@ -9,13 +9,13 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/internal/constant/dto/response"
-	"github.com/flash-softeware/aos/internal/constant/errors"
-	"github.com/flash-softeware/aos/internal/constant/model"
-	"github.com/flash-softeware/aos/platform/jwt"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/internal/constant/dto/response"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/platform/jwt"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // Token sessions (user-flow SIGN-8), for mobile apps and other clients

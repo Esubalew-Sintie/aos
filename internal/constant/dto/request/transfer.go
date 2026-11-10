@@ -3,7 +3,7 @@ package request
 import (
 	"strings"
 
-	"github.com/flash-softeware/aos/internal/constant/errors"
+	"github.com/flash-software-technology/aos/internal/constant/errors"
 )
 
 // ImportUser is one account moved from another system. PasswordHash may

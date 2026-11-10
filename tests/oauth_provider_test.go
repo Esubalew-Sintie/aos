@@ -10,8 +10,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/flash-softeware/aos/platform/jwt"
-	"github.com/flash-softeware/aos/platform/oidc"
+	"github.com/flash-software-technology/aos/platform/jwt"
+	"github.com/flash-software-technology/aos/platform/oidc"
 )
 
 type clientData struct {

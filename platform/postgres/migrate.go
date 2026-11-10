@@ -10,7 +10,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/schema"
+	"github.com/flash-software-technology/aos/schema"
 )
 
 // migrationLock is the advisory lock that stops two copies of the engine

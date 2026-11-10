@@ -19,14 +19,14 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/initiator"
-	"github.com/flash-softeware/aos/internal/constant"
-	"github.com/flash-softeware/aos/internal/constant/dto/request"
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
-	"github.com/flash-softeware/aos/platform/secret"
-	"github.com/flash-softeware/aos/platform/testdb"
+	"github.com/flash-software-technology/aos/initiator"
+	"github.com/flash-software-technology/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant/dto/request"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/testdb"
 )
 
 // env is one engine with its own database, a clock the test controls,

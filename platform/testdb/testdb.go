@@ -25,7 +25,7 @@ import (
 
 	"github.com/jackc/pgx/v5"
 
-	"github.com/flash-softeware/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/platform/postgres"
 )
 
 const envVar = "AOS_TEST_DATABASE_URL"

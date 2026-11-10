@@ -1,8 +1,8 @@
 package initiator
 
 import (
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // InitConfig reads the settings from the environment. needMasterKey is

@@ -6,9 +6,9 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/handler/middleware"
-	"github.com/flash-softeware/aos/internal/handler/rest"
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
+	"github.com/flash-software-technology/aos/internal/handler/rest"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 // InitEnterpriseRoutes registers SSO connections (both doors), the setup

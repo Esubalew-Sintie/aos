@@ -4,7 +4,7 @@ package middleware
 import (
 	"context"
 
-	"github.com/flash-softeware/aos/internal/constant/model"
+	"github.com/flash-software-technology/aos/internal/constant/model"
 )
 
 type contextKey int

@@ -4,7 +4,7 @@ package mailer
 import (
 	"context"
 
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 // Email is a message ready to send.

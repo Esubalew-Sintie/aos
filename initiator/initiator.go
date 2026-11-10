@@ -14,13 +14,13 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/handler/middleware"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
 
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/mailer"
-	"github.com/flash-softeware/aos/platform/postgres"
-	"github.com/flash-softeware/aos/platform/secret"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/mailer"
+	"github.com/flash-software-technology/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/platform/secret"
 )
 
 // App is the engine, wired and ready to serve.

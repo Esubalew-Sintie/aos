@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/flash-softeware/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant"
 )
 
 // Each template is plain text and English only. Translations come with

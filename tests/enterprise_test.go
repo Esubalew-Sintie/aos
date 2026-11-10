@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/flash-softeware/aos/platform/oidc"
+	"github.com/flash-software-technology/aos/platform/oidc"
 )
 
 type ssoStart struct {

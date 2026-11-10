@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/flash-softeware/aos/internal/constant"
+	"github.com/flash-software-technology/aos/internal/constant"
 )
 
 // TOTP is the time-based one-time password of RFC 6238, as authenticator

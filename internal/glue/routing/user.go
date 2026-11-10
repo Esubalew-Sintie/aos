@@ -5,8 +5,8 @@ import (
 
 	"github.com/go-chi/chi/v5"
 
-	"github.com/flash-softeware/aos/internal/handler/middleware"
-	"github.com/flash-softeware/aos/internal/handler/rest"
+	"github.com/flash-software-technology/aos/internal/handler/middleware"
+	"github.com/flash-software-technology/aos/internal/handler/rest"
 )
 
 // InitUserRoutes registers the backend routes for accounts.

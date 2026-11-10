@@ -4,7 +4,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/flash-softeware/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/logger"
 )
 
 func TestInboxKeepsLinksTokensAndCodes(t *testing.T) {

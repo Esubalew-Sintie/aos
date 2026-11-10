@@ -3,9 +3,9 @@ package initiator
 import (
 	"context"
 
-	"github.com/flash-softeware/aos/platform/config"
-	"github.com/flash-softeware/aos/platform/logger"
-	"github.com/flash-softeware/aos/platform/postgres"
+	"github.com/flash-software-technology/aos/platform/config"
+	"github.com/flash-software-technology/aos/platform/logger"
+	"github.com/flash-software-technology/aos/platform/postgres"
 )
 
 // InitDatabase connects and applies any migration that has not been

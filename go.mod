@@ -1,4 +1,4 @@
-module github.com/flash-softeware/aos
+module github.com/flash-software-technology/aos
 
 go 1.26.3
 
@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/flash-softeware/aos-go v0.3.0
+	github.com/flash-software-technology/aos-go v0.4.0
 	github.com/fxamacker/cbor/v2 v2.9.2 // indirect
 	github.com/go-viper/mapstructure/v2 v2.5.0 // indirect
 	github.com/go-webauthn/x v0.2.6 // indirect
